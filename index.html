@@ -16,10 +16,8 @@ description: "Ghana in Data: Get involved in open source projects and communitie
                         Action.<br />
                         Impact.
                     </h1>
-                    <p class="p-lg text-white col-md-11 col-lg-9" x-data-animate-in="fade" x-data-animate-in-delay="220">
-                        Ghana in Data designs and creates interactive data visualisation tools which are used to
-                        track and report on Ghana's SDG progress. 
-                        Join us to drive change with data!
+                    <p class="p-lg text-white col-md-11 col-lg-9" x-data-animate-in="fade" x-data-animate-in-delay="220" style="font-size: 2em;">
+                        Join our community to drive change using open data in Ghana!
                     </p>
                     <div data-animate-in="fade" data-animate-in-delay="240">
                         <a class="link-arrow text-white mt-4" href="{{ '/collaborate' | relative_url }}">Get involved</a>
@@ -51,10 +49,17 @@ description: "Ghana in Data: Get involved in open source projects and communitie
 
     <div class="wrapper pt-6 pb-4 mt-6 mb-4">
         <div class="text-center mb-6" data-animate-in="up" data-animate-in-delay="200">
+            <h2 class="h3">Who We Are</h2>
+            <p>
+                We are a community of developers, data scientists, and domain experts who are passionate about
+                using data and research as a tool for advocacy. We are committed to making data accessible and visible!
+            </p>
+            <p>Our work as a commuinty is centred around three outcomes: Insight, Action, and Impact. We collect and transform public data into clear, interactive visualizations, offering a deeper understanding of Ghana's progress toward the Sustainable Development Goals. By making data accessible, we empower individuals, policymakers, and organizations to make informed decisions that drive meaningful change. Our mission is to inspire collective action through data, fostering progress and improving lives across Ghana.</p>
+        </div>
+        <div class="text-center mb-6" data-animate-in="up" data-animate-in-delay="200">
             <h2 class="h3">Features</h2>
             <p>
-                Ghana in Data is a community of developers, data scientists, and domain experts who are passionate about
-                using data to tell stories and make better decisions. Here are some of the projects we are working on.
+                Our open source community focuses on building an open data ecosystem that is made up of standards, data exploration tools and community.
             </p>
         </div>
 
@@ -63,7 +68,7 @@ description: "Ghana in Data: Get involved in open source projects and communitie
             {% for project in site.projects %}
             {% if project.featured and featured_projects_count < 3 %}
             {% assign featured_projects_count = featured_projects_count | plus: 1 %}
-            <a class="tile" href="{{ project.projectUrl }}" target="_blank" rel= "noopener">
+            <a class="tile" href="{{ project.projectUrl }}" target="_blank" rel= "noopener" style="border-radius:40px">
                 <div>
                     {% if project.externalLogo %}
                     {% assign img = project.externalLogo %}
