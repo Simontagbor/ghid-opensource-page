@@ -1,0 +1,46 @@
+document.addEventListener("DOMContentLoaded", function() {
+    var options = {
+        strings: [
+            "Just Curious :) ?",
+            "a Developer ?",
+            "an AI Specialist ?",
+            "a Systems Architect ?",
+            "an Industry Expert ?",
+            "a UI/UX Designer ?",
+            "an Illustrator ?",
+            "a Web Developer ?",
+            "an Educator ?",
+            "a Writer ?",
+            "a Storyteller ?",
+            "a Social Media Specialist ?",
+            "a Data Scientist ?",
+            "a Legal Practioner ?",
+            "a Photographer ?",
+            "a Doctor ?",
+            "a Historian ?",
+            "a Scientist ?",
+            "a Researcher ?",
+            "a Journalist ?",
+            "a Patron ?",
+            "a Civil Servant ?",
+            "an Artist ?",
+            "a Designer ?",
+            "a Writer ?",
+            "a Musician ?",
+            "a Media Specialist ?",
+            "a Software Engineer ?",
+            "a Student ?",
+            "an Ally from the Diaspora ?",
+            "a VOLUNTEER ?",
+            "an ACTIVIST ?",
+            "a True PATRIOT ?",
+            "a GHANAIAN ?",
+        ],
+        typeSpeed: 50,
+        backSpeed: 30,
+        backDelay: 1500,
+        loop: true
+    };
+
+    var typed = new Typed("#typed-text", options);
+});
