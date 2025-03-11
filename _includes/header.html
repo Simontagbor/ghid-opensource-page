@@ -4,7 +4,7 @@
             <a href="{{ '/' | relative_url }}" tabindex="2">
                 <img
                     class="mr-3 icon"
-                    src="{{ 'assets/images/svgs/gid.png' | relative_url }}" alt="Ghana in Data"
+                    src="assets/images/svgs/gid.png" alt="Ghana in Data"
                 />
                 <span class="p-lg text-white">Ghana in Data</span>
             </a>
@@ -12,17 +12,17 @@
 
         <ul class="site-header__nav">
             <li{% if page.id == 'collaborate' %} class="is-active" aria-current="page" {% endif %}>
-                <a href="{{ "/collaborate/" | relative_url }}">Get involved</a>
+                <a href="/collaborate/">Get involved</a>
             </li>
             <li{% if page.id == 'program' or page.id == 'governance' or page.id == 'best-practices' %}
                 class="is-active" aria-current="page" {% endif %}>
-                <a href="{{ "/program/" | relative_url }}">Our program</a>
+                <a href="/program/">Our program</a>
             </li>
             <li{% if page.id == 'projects' %} class="is-active" aria-current="page" {% endif %}>
-                <a href="{{ "/projects/" | relative_url }}">Projects</a>
+                <a href="/projects/">Projects</a>
             </li>
             <li{% if page.id == 'ecosystem' %} class="is-active" aria-current="page" {% endif %}>
-                <a href="{{ "/ecosystem/" | relative_url }}">Ecosystem</a>
+                <a href="{/ecosystem/">Ecosystem</a>
             </li>
             
             <li>
