@@ -8,6 +8,7 @@
         <!--[if IE]><meta http-equiv="cleartype" content="on" /><![endif]-->
         <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
         <link rel="stylesheet" media="screen" href="{{ site.baseurl }}/assets/css/index.css?v=1d" />
+        <link rel="stylesheet" media="screen"href="{{ site.baseurl }}/assets/css/typograph.css" />
         <link rel="apple-touch-icon" sizes="180x180" href="{{ site.baseurl }}/assets/images/favicons/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="{{ site.baseurl }}/assets/images/favicons/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="{{ site.baseurl }}/assets/images/favicons/favicon-16x16.png">
@@ -24,12 +25,14 @@
         {% if jekyll.environment == "opensource.microsoft.com" %}{% include production-telemetry-head.html %}{% endif %}
         <script src="{{ site.baseurl }}/assets/js/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/2.0.2/timeago.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
         <script src="{{ site.baseurl }}/assets/js/handlebars.js"></script>
+        <script src="{{ site.baseurl }}/assets/js/gsap.js"></script>
         <meta name="google-site-verification" content="PXNcqyP34d82CBV3rvH8RwDRH5iWWb_zL-UFwp-3Ubs" />
         <meta name="google-site-verification" content="jj6XRLurdxcqc_T28_tszxZ4M2K8TFQDPjvVRb8MLsg" />
     </head>
 
-    <body class="page-loading no-js {{ page.id }}" id="page-{{ page.id }}">
+    <body class="page-loading no-js {{ page.id }}" id="page-{{ page.id }}" style="background-color:#ffffff">
         {% if jekyll.environment == "opensource.microsoft.com" %}{% include production-telemetry.html %}{% endif %}
         <a class="skip-to-content" href="#content" tabindex="1">skip to content</a>
 
@@ -42,6 +45,11 @@
         {% include footer.html %}
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+        <script src="{{ site.baseurl }}/assets/js/collaborate.js"></script>
+        <script src="{{ site.baseurl }}/assets/js/typed.js"></script>
         <script src="{{ site.baseurl }}/assets/js/DrawSVGPlugin.min.js"></script>
         <script src="{{ site.baseurl }}/assets/js/main.js"></script>
         {% if jekyll.environment == "opensource.microsoft.com" %}{% include production-telemetry-script.html %}{% endif %}
