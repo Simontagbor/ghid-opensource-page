@@ -3,7 +3,7 @@
     var $ = jQuery,
         activityFeed = $('#activityFeed'),
         activityList = $('#activityList'),
-        // refreshAction = $('#refresh-feed'),
+        refreshAction = $('#refresh-feed'),
         toggleAction = $('#toggle-feed'),
         toggleText = $('#toggle-text'),
         toggleText2 = $('#toggle-text2'),
@@ -23,6 +23,7 @@
     var visibleActivity = [];
     var pinnedActivity = [];
     var visibleIds = {};
+
 
     var refreshInterval = 7500;
     var displayInterval = 1500;
@@ -133,7 +134,7 @@
     }
 
     function renderNext() {
-        if (queuedActivity && queuedActivity.length) {
+        if (!queuedActivity) queuedActivity = []; 
             var activity = queuedActivity.pop();
             try {
                 var id = activity.id;
@@ -161,7 +162,7 @@
         if (visibleActivity.length < initialDisplay && queuedActivity.length) {
             rendinging = setTimeout(renderNext, 1);
         }
-    }
+    
 
     function cleanupDisplay() {
         var cleanupIds = [];
@@ -179,40 +180,43 @@
     }
 
     function updateRefreshFeed(enabled) {
-        //refreshAction.prop('disabled', enabled ? null : 'disabled');
+        refreshAction.prop('disabled', enabled ? null : 'disabled');
     }
 
-    // function iteration(isAutomatic) {
-    //     updateRefreshFeed(false);
-    //     var qs = futureContinuation ? '?future=' + encodeURIComponent(futureContinuation) : '';
-    //     if (!isAutomatic) {
-    //         qs = ''; // refresh should grab the latest
-    //     }
-    //     var url = '/api/stream' + qs;
-    //     $.ajax({
-    //         type: 'GET',
-    //         url: url,
-    //         dataType: 'json',
-    //         error: function () {
-    //             updateRefreshFeed(true);
-    //         },
-    //         success: function(activity){
-    //             updateRefreshFeed(true);
-    //             if (activity && activity.future) {
-    //                 futureContinuation = activity.future;
-    //             }
-    //             if (activity && activity.past && !backwardContinuation) {
-    //                 backwardContinuation = activity.past;
-    //             }
-    //             if (activity && activity.activities) {
-    //                 activity.activities.forEach(activity => queuedActivity.push(activity));
-    //                 if (activity.activities.length && !rendering) {
-    //                     renderNext();
-    //                 }
-    //             }
-    //         }
-    //     });
-    // }
+    function iteration(isAutomatic) {
+        updateRefreshFeed(false);
+        var qs = futureContinuation ? '?future=' + encodeURIComponent(futureContinuation) : '';
+        if (!isAutomatic) {
+            qs = ''; // refresh should grab the latest
+        }
+        var url = 'https://api.github.com/repos/owid/owid-grapher/' + qs;
+        $.ajax({
+            type: 'GET',
+            url: url,
+            dataType: 'json',
+            headers: {
+                'Authorization': 'token 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'
+            },
+            error: function () {
+                updateRefreshFeed(true);
+            },
+            success: function(activity){
+                updateRefreshFeed(true);
+                if (activity && activity.future) {
+                    futureContinuation = activity.future;
+                }
+                if (activity && activity.past && !backwardContinuation) {
+                    backwardContinuation = activity.past;
+                }
+                if (activity && activity.activities) {
+                    activity.activities.forEach(activity => queuedActivity.push(activity));
+                    if (activity.activities.length && !rendering) {
+                        renderNext();
+                    }
+                }
+            }
+        });
+    }
     function iteration(isAutomatic) {
         updateRefreshFeed(false);
         var githubApiUrl = 'https://api.github.com/repos/owid/owid-grapher/events';
@@ -220,30 +224,38 @@
             type: 'GET',
             url: githubApiUrl,
             dataType: 'json',
+            headers: {
+                'Authorization': 'token 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'
+            },
             error: function () {
                 updateRefreshFeed(true);
             },
-            success: function(data){
+            success: function(data) {
                 updateRefreshFeed(true);
-                // GitHub returns an array of events, so adapt the mapping:
-                data.forEach(function(event) {
-                    var activity = {
-                        id: event.id,
-                        type: event.type,
-                        actorLogin: event.actor.login,
-                        actorAvatar: event.actor.avatar_url,
-                        activityUrl: event.repo ? 'https://github.com/' + event.repo.name : '#',
-                        repoName: event.repo ? event.repo.name.split('/')[1] : '',
-                        orgName: event.repo ? event.repo.name.split('/')[0] : '',
-                        created: event.created_at,
-                        // Add any additional mappings you need
-                    };
-                    queuedActivity.push(activity);
-                });
-                if (data.length && !rendering) {
-                    renderNext();
+                if (Array.isArray(data)) {
+                    // GitHub returns an array of events, so adapt the mapping:
+                    data.forEach(function(event) {
+                        var activity = {
+                            id: event.id,
+                            type: event.type,
+                            actorLogin: event.actor.login,
+                            actorAvatar: event.actor.avatar_url,
+                            activityUrl: event.repo ? 'https://github.com/' + event.repo.name : '#',
+                            repoName: event.repo ? event.repo.name.split('/')[1] : '',
+                            orgName: event.repo ? event.repo.name.split('/')[0] : '',
+                            created: event.created_at,
+                            // Add any additional mappings you need
+                        };
+                        queuedActivity.push(activity);
+                    });
+                    if (queuedActivity.length && !rendering) {
+                        renderNext();
+                    }
+                } else {
+                    console.error("Expected an array but received:", data);
                 }
             }
+            
         });
     }
     
@@ -251,7 +263,8 @@
 
     resume(); // iteration();
 
-    // ---------------------
+
+// ---------------------
     // this is a one-time pull of "good first issue"
 
     var goodFirstIssueFeed = $('#goodFirstIssueFeed'),
@@ -261,86 +274,24 @@
 
     var initialGoodFirstIssueDisplay = 6;
 
-    // function renderGoodFirstIssues(goodFirstIssues) {
-    //     var shown = 0;
-    //     if (goodFirstIssues && goodFirstIssues.length) {
-    //         var gfi = goodFirstIssues.pop();
-    //         while (gfi) {
-    //             try {
-    //                 if (shown++ < initialGoodFirstIssueDisplay) {
-    //                     var id = gfi.id;
-    //                     if (!visibleIds[id]) {
-    //                         var octicon = octiconFromType(gfi.type, gfi.context);
-    //                         var html = goodFirstIssueTemplate({
-    //                             activity: gfi,
-    //                             id: id,
-    //                             octicon: tryGetOcticon(octicon),
-    //                             description: descriptionFromType(gfi.type, gfi.context),
-    //                         });
-    //                         goodFirstIssueList.prepend(html);
-    //                         jQuery('time.timeago').timeago();
-    //                     }
-    //                 }
-    //             } catch (ignoredError) {
-    //                 console.dir(ignoredError);
-    //             }
-    //             gfi = goodFirstIssues.pop();
-    //         }
-    //     }
-    // }
-
-    // function loadIssuesOneTime() {
-    //     $.ajax({
-    //         type: 'GET',
-    //         url: 'https://api.github.com/repos/owid/owid-grapher/issues',
-    //         dataType: 'json',
-    //         success: function(issues){
-    //             if (issues && issues.issues) {
-    //                 renderGoodFirstIssues(issues.issues);
-    //             }
-    //             if (issues && issues.helpWanted) {
-    //                 renderHelpWantedIssues(issues.helpWanted);
-    //             }
-    //         }
-    //     });
-    // }
-
     function renderGoodFirstIssues(goodFirstIssues) {
         var shown = 0;
         if (goodFirstIssues && goodFirstIssues.length) {
-            // Use pop() as before to iterate the array
             var gfi = goodFirstIssues.pop();
             while (gfi) {
                 try {
                     if (shown++ < initialGoodFirstIssueDisplay) {
                         var id = gfi.id;
                         if (!visibleIds[id]) {
-                            // Since GitHub issues don't include type/context properties,
-                            // you can assign defaults:
-                            var octicon = 'issue-opened';  // default icon for issues
-                            var description = "Opened an issue";  // default description
-    
-                            // Map GitHub issue fields to the expected keys
-                            var activity = {
-                                id: id,
-                                title: gfi.title,
-                                activityUrl: gfi.html_url,
-                                created: gfi.created_at,
-                                labels: gfi.labels,
-                                // If you want to set static values for org and repo:
-                                orgName: 'owid',
-                                repoName: 'owid-grapher'
-                            };
-    
+                            var octicon = octiconFromType(gfi.type, gfi.context);
                             var html = goodFirstIssueTemplate({
-                                activity: activity,
+                                activity: gfi,
                                 id: id,
                                 octicon: tryGetOcticon(octicon),
-                                description: description
+                                description: descriptionFromType(gfi.type, gfi.context),
                             });
                             goodFirstIssueList.prepend(html);
                             jQuery('time.timeago').timeago();
-                            visibleIds[id] = gfi.created_at;
                         }
                     }
                 } catch (ignoredError) {
@@ -350,35 +301,25 @@
             }
         }
     }
-    
 
     function loadIssuesOneTime() {
         $.ajax({
             type: 'GET',
             url: 'https://api.github.com/repos/owid/owid-grapher/issues',
             dataType: 'json',
-            success: function(issues){
-                if (Array.isArray(issues)) {
-                    // Filter issues based on labels
-                    var goodFirstIssues = issues.filter(issue => {
-                        return issue.labels.some(label => label.name.toLowerCase() === "good first issue");
-                    });
-                    var helpWantedIssues = issues.filter(issue => {
-                        return issue.labels.some(label => label.name.toLowerCase() === "help wanted");
-                    });
-    
-                    renderGoodFirstIssues(goodFirstIssues);
-                    renderHelpWantedIssues(helpWantedIssues);
-                } else {
-                    console.log('No issues returned.');
-                }
+            headers: {
+                'Authorization': 'token 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'
             },
-            error: function(xhr, status, error) {
-                console.error("Error loading issues:", error);
+            success: function(issues){
+                if (issues && issues.issues) {
+                    renderGoodFirstIssues(issues.issues);
+                }
+                if (issues && issues.helpWanted) {
+                    renderHelpWantedIssues(issues.helpWanted);
+                }
             }
         });
     }
-    
 
     loadIssuesOneTime();
 

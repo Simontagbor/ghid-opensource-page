@@ -2,7 +2,7 @@ $(document).ready(function() {
     function fetchActivities() {
         $.ajax({
             type: 'GET',
-            url: 'https://api.github.com/users/Simontagbor/events', // Update this URL to the correct endpoint
+            url: 'https://api.github.com/repos/owid/owid-grapher/commits', // Update this URL to the correct endpoint
             dataType: 'json',
             success: function(data) {
                 if (data && data.length > 0) {
