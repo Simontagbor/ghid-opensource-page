@@ -1,5 +1,6 @@
 ---
 layout: default
+featured: true
 title: Azure SDKs
 developer: Microsoft
 logo: azure-sdk-logo.svg
