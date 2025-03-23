@@ -6,7 +6,7 @@ description: "Ghana in Data: Get involved in open source projects and communitie
 ---
 
 <article>
-    <div class="wrapper-full bg-dark" style="padding-bottom: 50px;">
+    <div class="wrapper-full bg-dark hero-wrapper-pad">
         <div class="wrapper py-6 my-6">
             <div class="d-md-flex flex-justify-between">
                 <div class="col-12 col-md-7 col-lg-7 mb-6 mb-md-0">
@@ -17,26 +17,27 @@ description: "Ghana in Data: Get involved in open source projects and communitie
                         <div class="hero-text-formula">=</div>
                         Impact
                     </h1>
-                    <p class="p-lg text-white col-md-11 col-lg-9" x-data-animate-in="fade" x-data-animate-in-delay="220" style="font-size: 1.5em;">
-                        Are you <span id="typed-text" style="color:#FFC857; font-weight: 600;"></span> <br />
-                        Join the open data movement pushing for a transparent, accountable, and innovative Ghana. 
+                    <p class="p-lg text-white col-md-11 col-lg-9 hero-text-p" x-data-animate-in="fade" x-data-animate-in-delay="220" style="padding-bottom: 15px; color:#E6FAFC !important;">
+                        Are you <span id="typed-text" class="hero-text-typed"></span> 
+                    </p>
+                    <p class="p-lg text-white col-md-11 col-lg-9 hero-text-p" x-data-animate-in="fade" x-data-animate-in-delay="220" style="padding-bottom: 8px; color: #e6fafc !important;">
+                        Join the open knowledge movement, using collective intelligence for impact in Ghana.
                     </p>
                     <div data-animate-in="fade" data-animate-in-delay="240">
-                        <a class="link-arrow text-white mt-4" href="{{ '/collaborate' | relative_url }}">Get involved</a>
+                        <a class="link-arrow text-white mt-4" style="color: #e6fafc !important;"href="{{ '/collaborate' | relative_url }}">Get involved</a>
                         <br />
-                        <a class="link-arrow text-white mt-4" href="{{ '/projects' | relative_url }}">Explore projects</a>
+                        <!-- <a class="link-arrow text-white mt-4" href="{{ '/projects' | relative_url }}">Explore projects</a> -->
                     </div>
                 </div>
                 <div class="col-12 col-md-5 col-lg-4 pl-md-4 pl-lg-2" style="position: relative" id="hero-figure">
                     <figure class="intro-svg" id="draw-svg" data-detect-viewport>
                         {% include open-source-svg.html %}
                     </figure>
-                    <div id="hero-avatars" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0"></div>
-                    <div id="hero-accessibility-controls" style="position: absolute; right: 0; bottom: 0;" data-require-javascript="yes" data-javascript-show="immediate">
+                    <div id="hero-avatars" class="hero-avatars-position"></div>
+                    <div id="hero-accessibility-controls" class="hero-a11-ctrl"  data-require-javascript="yes" data-javascript-show="immediate">
                         <div style="position: relative; margin-bottom: -30px;" >
                             <a  class="refresh"
-                                style="color: #fff"
-                                id="toggle-graphics"
+                                style="color: #fff;"
                                 href="#"
                                 title="Pause animation"><span class="sr-only" id="toggle-text2">Pause animations and stop showing new graphics</span>
                                 <span id="toggle-text" aria-hidden="true">Pause</span> <span id="pause-icon">{% octicon square-fill %}</span><span 
@@ -49,51 +50,53 @@ description: "Ghana in Data: Get involved in open source projects and communitie
         </div>
     </div>
     <!-- <hr /> -->
-    <div class="wrapper pt-6 pb-4 mt-6 mb-4" style="display: flex; justify-content: center; align-items: center; background-color: #FFC857; border-radius: 40px;">
-        <div class="wrapper py-6 my-6" style="width:60%; padding-left:10%">
-            <section class="intro" >
-                <h1 class="title" style="padding-bottom: 40px;">What is the Challenge and <span>the Mission?</span></h1>
-                <p class="highlight">Economic sovereignty,  inequality, corruption,  tribal conflicts, unemployment, 
-                    poverty,  environmental threats, and adaptation to an evolving demography are among the sticky 
-                    problems that have plagued Ghana for years... </p>
+    <div class="wrapper pt-6 pb-4 mt-6 mb-4 wrapper-custom">
+        <div class="wrapper py-6 my-6 wrapper-custom-content">
+            <section class="intro">
+                <h1 class="title custom-title">What is the Challenge and <span>the Mission?</span></h1>
+                <p class="highlight">Economic sovereignty, inequality, corruption, tribal conflicts, unemployment, 
+                    poverty, environmental threats, and adaptation to an evolving demography are among the sticky 
+                    problems that have plagued Ghana for years...</p>
                 <p class="highlight">Fragmented knowledge—much like the parable of the blind men and the elephant—implicate 
                     progress. Especially when vital data and research is trapped behind paywalls, jargon, or isolated databases. 
                     Ghana in Data’s mission is to:</p>
-
-                <p class="highlight-text highlight" style="font-weight: 800;"><em><strong> Drive Informed Civic Engagement by Making Research and Data Accessible and Approachable 
+    
+                <p class="highlight-text highlight custom-p"><em><strong> Drive Informed Civic Engagement by Making Research and Data Accessible and Approachable 
                     to Patriots Working to Build a Better Ghana.</strong></em></p>
                 <p class="highlight">We are a movement championing the wisdom of the collective as the 
-                    missing link between Ghana’s current state and Her promising future. By combining open data and opensource, we aim to inspire an informed civic engagment.
+                    missing link between Ghana’s current state and Her promising future. By combining open data and opensource, we aim to inspire an informed civic engagement.
                 </p>
             </section>
-            <div data-animate-in="fade" data-animate-in-delay="240" style="color:#DB3A34">
-                <a class="link-arrow text-white mt-4" style="color:#DB3A34" href="{{ '/collaborate' | relative_url }}"><span style="font-weight: 500;">More About our Mission</span></a>
+            <div data-animate-in="fade" data-animate-in-delay="240">
+                <a class="link-arrow text-white mt-4" href="{{ '/collaborate' | relative_url }}"><span class="weight-link">More About our Mission</span></a>
             </div>
         </div>
-        <div class="comic" style="padding-right:10%"><img src="{{ site.baseurl }}/assets/images/pngs/parable.png" /></div>
+        <div class="comic comic-padding">
+            <img src="{{ site.baseurl }}/assets/images/webp/parable.webp" alt="Parable Image" class="comic-img">
+        </div>
     </div>
-    <div class="wrapper pt-6 pb-4 mt-6 mb-4" style="display: flex; justify-content: center; align-items: center;">
-        <div class="wrapper py-6 my-6" style="padding-left: 10%;">
+    <div class="wrapper pt-6 pb-4 mt-6 mb-4 comic-wrapper">
+        <div class="wrapper py-6 my-6 comic-wrapper-content">
             <section class="intro" >
-                <h1 class="title" style="padding-bottom: 40px;">What is <span>Open Data?</span></h1>
+                <h1 class="title custom-title">What is <span>Open Data?</span></h1>
                 <p class="highlight">Any data that is <br />
-                    <span class="secondary" style="color:#DB3A34; font-size:60px"><strong>accessible</strong> 
+                    <span class="secondary comic-wrapper-callout" style="color:#DB3A34;">accessible</span>
                     <span style="color:#11100f">to all, </span> <br />
-                    <span class="secondary highlight-text" style="color:#FFC857; font-size:60px"><strong>shared</strong></span><span style="color:#11100f;">, and can be</span> <br />
-                    <span class="secondary highlight-text" style="color:#33673B; font-size:60px"><strong>built-on.</strong></span>
+                    <span class="secondary highlight-text comic-wrapper-callout" style="color:#FFC857;">shared</span><span style="color:#11100f;">, and can be</span> <br />
+                    <span class="secondary highlight-text comic-wrapper-callout" style="color:#33673B;">built-on.</span>
                 </p>
                 <p class="highlight">Open data is vital for a sustainable development rooted in <br />
                   <span class="highlight-text highlight">transparency, accountability, and innovation.</span>
                 </p>
             </section>
         </div>
-        <div class="comic" style="width:80%; border-radius:40px"><img src="{{ site.baseurl }}/assets/images/pngs/trust_my_analysis.png" /></div>
+        <div class="comic-img"><img src="{{ site.baseurl }}/assets/images/webp/trustmy.webp" /></div>
     </div>
     <hr />
-    <div class="wrapper pt-6 pb-4 mt-6 mb-4" style="display: flex; justify-content: center; align-items: center;">
-        <div class="wrapper py-6 my-6" style="padding-left: 10%;">
-            <section class="intro">
-                <h1 class="title" style="padding-bottom: 40px;">How Do We Use <span>Open Data?</span></h1>
+    <div class="wrapper pt-6 pb-4 mt-6 mb-4 comic-wrapper">
+        <div class="wrapper py-6 my-6 comic-wrapper-content">
+            <section class="intro" style="width:90%;">
+                <h1 class="title custom-title">How Do We Use <span>Open Data?</span></h1>
                 <p class="highlight">
                     As an opensource community of thinkers, developers, data professionals, artists, policy analysts, freelance journalists...
                 </p>
@@ -106,41 +109,32 @@ description: "Ghana in Data: Get involved in open source projects and communitie
                 <p class="highlight">Our model is a creative combination of Insight and Civic Engagement to yield Impact.</p>
             </section>
         </div>
-        <div class="comic" style="width:80%; border-radius:40px"><img src="{{ site.baseurl }}/assets/images/pngs/collective-int.png" /></div>
+        <div class="comic comic-img"><img src="{{ site.baseurl }}/assets/images/webp/collective-int.webp" /></div>
     </div>
-    <!-- <hr /> -->
-    <div class="wrapper pt-6 pb-4 mt-6 mb-4" style="display: flex; justify-content: center; align-items: center; border-radius: 40px;">
-        <!-- <div class="text-center mb-6" data-animate-in="up" data-animate-in-delay="200">
-            <h1 class="title">Our <span>Model</span></h1>
-        </div> -->
-        <div class="py-6 my-6" style="display: flex;
-        flex-direction: column;
-        align-content: center;
-        align-items: center;
-        justify-content: center;">
-            <div class="d-md-flex text-center" style="justify-content: space-evenly;
-    align-items:center; margin-bottom: 40px;">
-
+    
+    <div class="wrapper pt-6 pb-4 mt-6 mb-4 wrapper-custom" style="background-color: #fff;">
+        <div class="py-6 my-6 insight-wrapper">
+            <div class="d-md-flex text-center insight-wrapper-content">
                 <div class="col-12 col-md-4 pr-md-4" data-animate-in="fade" data-animate-in-delay="200">
-                    <img class="mb-4" src="{{ '/assets/images/svgs/insight.svg' | relative_url }}" alt="Adinkra icon" style="height:50px" />
+                    <img class="mb-4 insight-icon" src="{{ '/assets/images/webp/insight.webp' | relative_url }}" alt="Adinkra icon" />
                     <h3 class="h4">Insight</h3>
-                    <p style="width:80%">
+                    <p class="insight-p">
                         GiD collects and transforms public data into <strong>immersive experiences</strong>, to create an informed and effective civic engagment.
                     </p>
                 </div>
                 <span style="font-size:40px; font-weight:700">+</span>
                 <div class="col-12 col-md-4 px-md-3 mb-6 mb-md-0" data-animate-in="fade" data-animate-in-delay="200">
-                    <img class="mb-4" src="{{ '/assets/images/svgs/action.svg' | relative_url }}" alt="Adinkra icon named akoben" style="height:50px" />
+                    <img class="mb-4 insight-icon" src="{{ '/assets/images/webp/action.webp' | relative_url }}" alt="Adinkra icon named akoben" />
                     <h3 class="h4">Civic Engagement</h3>
-                    <p style="width:80%">
+                    <p class="insight-p">
                         Through carefully designed initiatives, we help the public take action to transition from insight to impact.
                     </p>
                 </div>
                 <span style="font-size:40px; font-weight:700">=</span>
                 <div class="col-12 col-md-4 pl-md-4 mb-6 mb-md-0" data-animate-in="fade" data-animate-in-delay="200">
-                    <img class="mb-4" src="{{ '/assets/images/svgs/impact.svg' | relative_url }}" alt="Adinkra icon" style="height:50px"/>
+                    <img class="mb-4 insight-icon" src="{{ '/assets/images/webp/impact.webp' | relative_url }}" alt="Adinkra icon"/>
                     <h3 class="h4">Impact</h3>
-                    <p style="width:80%">
+                    <p class="insight-p">
                         By inspiring civic engagment through data and research, we can rewrite the rules of "politics" for the benefit of every Ghanaian.
                     </p>
                 </div>
@@ -154,7 +148,7 @@ description: "Ghana in Data: Get involved in open source projects and communitie
                     By collecting and transforming public data into clear and immersive experiences, 
                     We can offer a more nuanced lens through which to discuss and advocate for solutions.</span>
                 </p>
-                <a class="link-arrow text-brand mt-4" href="{{ '/ecosystem' | relative_url }}" style="color:#b90909">
+                <a class="link-arrow text-brand mt-4" href="{{ '/ecosystem' | relative_url }}" style="color: #33673b !important;">
                     Here's Our Roadmap
                 </a>
             </div>
@@ -164,7 +158,7 @@ description: "Ghana in Data: Get involved in open source projects and communitie
 
     <div class="wrapper py-6 my-6">
         <section class="intro">
-            <h1 class="title" style="padding-bottom: 40px;">Why
+            <h1 class="title custom-title">Why
                 <span>Open Source?</span>
             </h1>
             <p class="highlight">
@@ -190,20 +184,19 @@ description: "Ghana in Data: Get involved in open source projects and communitie
     </div> -->
     <div class="wrapper py-6 my-6" >
         <section class="intro">
-            <h1 class="title">Which Projects Would You Like to
+            <h1 class="title custom-title">Which Projects Would You Like to
                 <span>Support?</span>
             </h1>
         </section>
     </div>
-    <div class="wrapper pt-6 pb-4 mt-6 mb-4" style="background-color: #FFC857; border-radius: 40px;">
-        <div class="tile-list" data-animate-in="up" data-animate-in-delay="400" style="display: flex;
-    justify-content: space-around; padding-top:40px;">
+    <div class="wrapper pt-6 pb-4 mt-6 mb-4" style="background-color: #FFC857; border-radius: 40px; overflow: hidden; padding: 1.5rem 0; box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.514);">
+        <div class="tile-list tile-content" data-animate-in="up" data-animate-in-delay="400" >
             {% assign featured_projects_count = 0 %}
             {% for project in site.projects %}
-            {% if project.featured and featured_projects_count < 3 %}
+            {% if project.featured and featured_projects_count < 6 %}
             {% assign featured_projects_count = featured_projects_count | plus: 1 %}
-            <a class="tile" href="{{ project.projectUrl }}" target="_blank" rel= "noopener" style="border-radius:40px; background-color: #fff; width:27%;">
-                <div style="display: flex; flex-direction: column; align-content: center; align-items: center; justify-content: center;">
+            <a class="tile tile-custom" href="{{ project.projectUrl }}" target="_blank" rel= "noopener">
+                <div class="tile-div">
                     {% if project.externalLogo %}
                     {% assign img = project.externalLogo %}
                     {% else %}
@@ -211,7 +204,7 @@ description: "Ghana in Data: Get involved in open source projects and communitie
                     {% endif %}
                     <img class="mb-4" src="{{ img | relative_url }}" alt="" />
                     <h3 class="h6 text-brand font-weight-600 mb-3" style="color:#33673B">{{ project.title }}</h3>
-                    <p style="width:80%; font-size: 12px; font-weight:500">{{ project.description }}</p>
+                    <p style="width:90%; font-size: 12px; font-weight:500">{{ project.description }}</p>
                 </div>
             </a>
             {% endif %}
@@ -223,17 +216,28 @@ description: "Ghana in Data: Get involved in open source projects and communitie
             <a class="link-arrow text-white mt-4" href="/projects">Explore Ways You Can Help </a>
         </div>
     </div>
-
+    <div class="wrapper pt-6 pb-4 mt-6 mb-4 comic-wrapper" style="flex-direction: column;">
+        <div class="wrapper py-6 my-6 comic-wrapper-content" style="width:90%;">
+            <section class="intro" >
+                <p class="highlight comic-wrapper-callout" style="max-width:100%">For Non-Code Contributions,</p>
+                <p class="highlight comic-wrapper-callout" style="max-width:100%">Use the <span class="secondary comic-wrapper-callout" style="color:#DB3A34;"><a href="#" style="color:#DB3A34;">Calls for Collaborators</a></span> </p>
+                <p class="highlight comic-wrapper-callout" style="max-width:100%">Page to find initiatives <br />
+                    that match your <br />
+                    interest.
+                </p>
+            </section>
+        </div>
+        <a class="link-arrow text-brand mt-4" href="{{ '/ecosystem' | relative_url }}" style="color: #33673b !important;">
+            Respond to Open Calls
+        </a>
+    </div>
 
     <div class="split-content text-white" style="margin-top: 256px;
     margin-bottom: 200px">
-        <!-- TEMP: overriding color for more contrast -->
-         <!-- TODO(Experiment): Add Adinkra pattern overlay -->
         <div class="split-content__content split-content__content--left" style="background-color: #11100f;">
             <div data-animate-in="fade" data-animate-in-delay="200">
                 <h2 class="mb-4">
                     <span class="h2">Are You Our Next Contributor?</span>
-                    <!-- <span class="h2">Get involved</span> -->
                 </h2>
                 <p class="p-lg font-weight-400">
                     Whether you're a developer, designer, data scientist, or just a <strong>patriot</strong> who wants to help, there are many ways to get involved bring to life, our vision of the <strong>Collective Ghanaian Inteligence.</strong>
@@ -267,12 +271,11 @@ description: "Ghana in Data: Get involved in open source projects and communitie
                     <a class="link-arrow" href="{{ '/ecosystem/' | relative_url }}">Become a GiD Champion</a>
                 </div>
             </div>
-            <!-- <img src="{{ '/assets/images/direction/dots-corner.svg' | relative_url }}" alt="" /> -->
         </div>
     </div>
     <div class="wrapper py-6 my-6">
         <section class="intro">
-            <h1 class="title" style="padding-bottom: 40px;">Our 
+            <h1 class="title custom-title">Our 
                 <span>Patron Wall of Fame</span>
             </h1>
             <p class="highlight">
@@ -280,19 +283,28 @@ description: "Ghana in Data: Get involved in open source projects and communitie
             </p> 
         </section>
     </div>
-    <div class="wrapper pt-6 pb-4 mt-6 mb-4" style="background-color: #FFC857; border-radius: 40px;">
-        <div class="tile-list" data-animate-in="up" data-animate-in-delay="400" style="display: flex;
-    justify-content: space-around; padding-top:40px;">
-          <div class="text-center mt-6 pb-6">
-             <a class="link-arrow text-white mt-4" href="/projects">Become a Community Patron </a>
-          </div>
-
+    <div class="wrapper-full bg-dark hero-wrapper-pad">
+        <div class="wrapper py-6 my-6">
+            <div class="patron-content" data-animate-in="up" data-animate-in-delay="400">
+                <figure class="intro-svg" id="draw-svg" data-detect-viewport>
+                    {% include open-source-svg.html %}
+                </figure>
+                <figure class="intro-svg" id="draw-svg" data-detect-viewport>
+                    {% include open-source-svg.html %}
+                </figure>
+                <figure class="intro-svg" id="draw-svg" data-detect-viewport>
+                    {% include open-source-svg.html %}
+                </figure>
+            </div>
+            <div class="text-center mt-6 pb-6">
+                <a class="link-arrow text-white mt-4" href="/projects">Become a Community Patron </a>
+            </div>
         </div>
     </div>
 
     <div class="wrapper py-6 my-6">
         <section class="intro">
-            <h1 class="title" style="padding-bottom: 40px;">Our 
+            <h1 class="title custom-title">Our 
                 <span>Corporate Allies</span>
             </h1>
             <p class="highlight">
@@ -309,43 +321,16 @@ description: "Ghana in Data: Get involved in open source projects and communitie
 
         </div>
     </div>
-    <div class="wrapper pt-6 pb-6 mt-6 mb-6">
-        <div class="d-md-flex">
-            <!-- <div class="col-md-6 col-lg-5 mb-4 mb-md-0">
-                <h3 class="h5 text-brand font-weight-600 mb-2">Innovate faster and more securely with open source on Azure</h3>
-                <p>Build on a highly secure cloud platform designed to protect your data and business assets, including proactive, comprehensive compliance coverage.  Gain the flexibility to move your app anywhere. Operate seamlessly and elastically, on-premises, in hybrid or multicloud environments, or at the edge.</p>
-                <div class="link-arrow-external mt-4"><a href="https://azure.microsoft.com/en-us/solutions/open-source/#overview">Learn more about open source on Azure</a></div>
-            </div> -->
 
-            <!--
-                To restore this section, we would need code to connect to the post-cookie consent process.
-            <div class="col-md-6 pl-md-4 pl-lg-6">
-                <div>
-                    <iframe loading="lazy" src="https://docs.microsoft.com/_themes/docs.theme/master/en-us/_themes/global/video-embed.html?id=ec3d794c-eb61-42fe-a0ae-016cfa1663a4" allowfullscreen="" title="" tabindex="0" allow="autoplay" style="width: 100%;height:200px;position: relative;"></iframe>
-                    <div class="link-arrow-external mt-4"><a href="https://azure.microsoft.com/en-us/blog/genomics-testing-on-the-iss-with-hpe-spaceborne-computer2-and-azure/">Azure - The cloud powering the space race. Read the story</a>.</div>
-                </div>               
-            </div>
-            -->
-        </div>
-    </div>
-
-
-<!-- add a bold CTA section  -->
-<!-- Add Adinkra pattern to hero section -->
-<!-- Add Adinkra Elements to bottom of page and the -->
-<!-- create an infographic roadmap -->
     <div class="wrapper py-6 my-6">
         <section class="intro">
-            <h1 class="title" style="padding-bottom: 40px;">Latest 
+            <h1 class="title custom-title">Latest 
                 <span>GiD Updates</span>
             </h1>
         </section>
     </div>
 
     <div class="wrapper pt-6 pb-6 mt-6 mb-6" >
-        <!-- <div class="text-center mb-6" data-animate-in="up" data-animate-in-delay="400">
-            <h2 class="h3">Ghana in Data Updates</h2>
-        </div> -->
 
         <div class="blog-list">
             {% for post in site.posts %}

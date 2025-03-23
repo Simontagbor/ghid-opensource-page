@@ -259,8 +259,11 @@
     function loadIssuesOneTime() {
         $.ajax({
             type: 'GET',
-            url: '/api/issues',
+            url: 'https://api.github.com/repos/owid/owid-grapher/issues',
             dataType: 'json',
+            headers: {
+                'Authorization': 'token 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'
+            },
             success: function(issues){
                 if (issues && issues.issues) {
                     renderGoodFirstIssues(issues.issues);
