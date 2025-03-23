@@ -1,10 +1,9 @@
-# Microsoft Open Source Code of Conduct
+# Ghana in Data Open Source Code of Conduct
 
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
+This project has adopted the [GiD Open Source Code of Conduct](https://developer.ghindata.org/codeofconduct/).
 
 Resources:
 
-- [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/)
-- [Microsoft Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/)
-- Contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with questions or concerns
-- Employees can reach out at [aka.ms/opensource/moderation-support](https://aka.ms/opensource/moderation-support)
+- [GiD Open Source Code of Conduct](https://developer.ghindata.org/codeofconduct/)
+- [GiD Code of Conduct FAQ](https://developer.ghindata.org/codeofconduct/faq/)
+- Contact [opencode@ghindata.org](mailto:opencode@ghindata.org) with questions or concerns
