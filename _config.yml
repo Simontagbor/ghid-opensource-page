@@ -23,6 +23,8 @@ plugins:
 # to override the default setting.
 
 collections:
+  sdgs:
+    output: false
   projects:
     output: false
   posts:

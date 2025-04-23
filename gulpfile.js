@@ -176,7 +176,8 @@ function watchFiles(cb) {
 		"./_layouts/**/*",
 		"./_pages/**/*",
 		"./_posts/**/*",
-		"./_projects/**/*"
+		"./_projects/**/*",
+    "./_sdgs/**/*",
 	  ],
 	  gulp.series(jekyll, browserSyncReload)
 	);
