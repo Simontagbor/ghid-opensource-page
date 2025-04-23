@@ -7,8 +7,12 @@
         <meta name="theme-color" content= "#24292e">
         <!--[if IE]><meta http-equiv="cleartype" content="on" /><![endif]-->
         <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
         <link rel="stylesheet" media="screen" href="{{ site.baseurl }}/assets/css/index.css?v=1d" />
         <link rel="stylesheet" media="screen"href="{{ site.baseurl }}/assets/css/typograph.css" />
+        <link rel="stylesheet" media="screen" href="{{ site.baseurl }}/assets/css/sdg.css" />
         <link rel="stylesheet" media="screen" href="{{ site.baseurl }}/assets/css/main.css" />
         <link rel="apple-touch-icon" sizes="180x180" href="{{ site.baseurl }}/assets/images/favicons/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="{{ site.baseurl }}/assets/images/favicons/favicon-32x32.png">
@@ -25,6 +29,9 @@
         </script>
         {% if jekyll.environment == "opensource.microsoft.com" %}{% include production-telemetry-head.html %}{% endif %}
         <script src="{{ site.baseurl }}/assets/js/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <!-- Tailwind CDN -->
+        <script src="https://kit.fontawesome.com/c6fa6541df.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.tailwindcss.com"></script>
         <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.min.js"></script>
         <script src="{{ site.baseurl }}/assets/js/handlebars.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/2.0.2/timeago.min.js"></script>
