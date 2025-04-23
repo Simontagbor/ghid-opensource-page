@@ -19,17 +19,17 @@
         {% raw %}{{#if activity.labels }}{% endraw %}
         <div>
             {% raw %}{{#each activity.labels }}{% endraw %}
-            <span class="IssueLabel" style="background-color:#{% raw %}{{{this.color}}}{% endraw %};color:#{% raw %}{{{this.foreground}}}{% endraw %}">
+            <span class="IssueLabel" style="background-color:#{% raw %}{{ this.color }}{% endraw %};color:#{% raw %}{{ this.foreground }}{% endraw %}">
             {% raw %}{{this.name}}{% endraw %}
             </span>
             {% raw %}{{/each}}{% endraw %}
         </div>
         {% raw %}{{/if}}{% endraw %}
-        <!--
+        
         <div class="activity__footer">
             {% octicon repo %}
             <a href="{% raw %}{{ activity.activityUrl }}{% endraw %}" target="_new">{% raw %}{{ activity.orgName }}/{{ activity.repoName }}{% endraw %}</a>
-        </div>
-        -->
+        </div>s
+       
     </div>
 </article>

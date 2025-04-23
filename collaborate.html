@@ -155,6 +155,25 @@ title: Get involved
                     </script>
                 </div>
 
+                <header class="mb-6 border-bottom pb-4 mt-6">
+                    <h2 class="h3" id="help-wanted">Non-Code Contributions</h2>
+                    <p>
+                        Don't code? No problem, it's truly all hands on deck! we have many ways to contribute to open source
+                        projects. For instance, You can help with documentation, design, testing, and more. 
+                    </p>
+                </header>
+                <div class="d-sm-flex flex-wrap">
+                    <div  class="col-12" id="helpWantedIssueFeed">
+                        <ul class="project-list" id="helpWantedIssueList">
+                        </ul>
+                    </div>
+                    <script id="helpwantedissue-template" type="text/x-handlebars-template">
+                        <li>
+                            {% include help-wanted-issue.html %}
+                        </li>
+                    </script>
+                </div>
+
             </div>
             <div class="col-12 col-lg-4 pl-lg-6 col-lg-4">
                 <div>
