@@ -233,14 +233,36 @@
 .tile-custom {
     border-radius: 40px;
     background-color: #fff;
-    max-width: 285px;
-    min-width: 285px;
+    flex: 0 0 auto; /* Prevent tiles from shrinking or growing */
+    width: 285px; /* Fixed width for tiles */
+    height: 320px; /* Fixed height for tiles */
     height:320px;
     flex: 0 0 auto;
     margin-left: 30px;
     margin-right: 30px;
     scroll-snap-align: center;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 767px) {
+    .trends-and-tiles {
+        flex-direction: column; /* Stack the trends indicator and tile list */
+    }
+
+    .trends-indicator {
+        position: static; /* Remove sticky positioning on smaller screens */
+        width: 100%; /* Full width for smaller screens */
+        margin-bottom: 20px;
+    }
+
+    .tile-list {
+        flex-wrap: nowrap; /* Ensure horizontal scrolling remains */
+        overflow-x: auto;
+    }
+
+    .tile-custom {
+        width: 80%; /* Adjust tile width for smaller screens */
+    }
 }
 
 .wrapper {
@@ -255,6 +277,19 @@
     align-items: center;
     justify-content: center;
     text-align: center;
+}
+
+.tile-list {
+    flex: 1; /* Allow the tile list to take up the remaining space */
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    margin-left: 20px; /* Offset to ensure tiles start after the trends indicator */
+    /* position: relative; */
+    z-index: 1; /* Ensure tiles are below the trends indicator */
 }
 
 .patron-content {

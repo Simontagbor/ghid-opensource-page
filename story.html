@@ -293,78 +293,106 @@ title: Ghana in Data Story
         </div>
     </div> -->
     <div class="wrapper pt-6 pb-4 mt-6 mb-4 whiteboard" style="background-color: black;">
-        <div class="tile-list tile-content" data-animate-in="up" data-animate-in-delay="400">
-          {% assign featured_projects_count = 0 %}
-          {% for project in site.sdgs %}
-          
-            {% if project.featured and featured_projects_count < 17 %}
-              {% assign featured_projects_count = featured_projects_count | plus: 1 %}
-              <div style="display: flex; gap: 20px; align-items: center; flex-direction: column-reverse;">
-                
-                <div class="tile tile-custom sdg-tile">
-                    <div class="tile-div">
-                      <!-- Trend Status with Icon -->
-                      <div class="trend-status">
-                        <img src="{{ site.baseurl }}/assets/images/SDG/{{ project.status-sign | strip }}" alt="Trend Status Icon" class="trend-status-icon" />
-                     </div>
+        <div class="trends-and-tiles">
+            <!-- trends indicators -->
+            <div class="trends-indicator">
+                <h3 class="trends-title">Keys</h3>
+                <ul class="trends-list">
+                    <li class="trend-item">
+                        <img src="{{ site.baseurl }}/assets/images/SDG/declining.png" alt="Decreasing" class="trend-icon" />
+                        <span class="trend-label">Decreasing</span>
+                    </li>
+                    <li class="trend-item">
+                        <img src="{{ site.baseurl }}/assets/images/SDG/stagnating.png" alt="Stagnating" class="trend-icon" />
+                        <span class="trend-label">Stagnating</span>
+                    </li>
+                    <li class="trend-item">
+                        <img src="{{ site.baseurl }}/assets/images/SDG/on-track.png" alt="On Track" class="trend-icon" />
+                        <span class="trend-label">On Track</span>
+                    </li>
+                    <li class="trend-item">
+                        <img src="{{ site.baseurl }}/assets/images/SDG/improving.png" alt="Moderately Improving" class="trend-icon" />
+                        <span class="trend-label">Moderately Improving</span>
+                    </li>
+                    <li class="trend-item">
+                        <img src="{{ site.baseurl }}/assets/images/SDG/data-unavailable.png" alt="Information Unavailable" class="trend-icon" />
+                        <span class="trend-label">Information Unavailable</span>
+                    </li>
+                </ul>
+            </div>
+            <!-- tile list -->
+            <div class="tile-list tile-content" data-animate-in="up" data-animate-in-delay="400">
+              {% assign featured_projects_count = 0 %}
+              {% for project in site.sdgs %}
+            
+                {% if project.featured and featured_projects_count < 17 %}
+                  {% assign featured_projects_count = featured_projects_count | plus: 1 %}
+                  <div style="display: flex; gap: 20px; align-items: center; flex-direction: column-reverse;">
 
-                      <!-- SDG Info -->
-                      {% if project.externalLogo %}
-                        {% assign img = project.externalLogo %}
-                      {% else %}
-                        {% capture img %}/assets/images/SDG/{{ project.logo | strip }}{% endcapture %}
-                      {% endif %}
-                      <img class="mb-4 sdg-badge" src="{{ img | relative_url }}" alt="{{ project.title }} logo" />
-                      <h3 class="h6 text-brand font-weight-600 mb-3" style="color:#33673B">{{ project.title }}</h3>
-                      <p style="width:90%; font-size: 12px; font-weight:500">{{ project.description }}</p>
-          
-                      <!-- Hover Modal -->
-                      <div class="hover-modal">
-                        <!-- {% if project.modalImage %}
-                        <img src="/assets/images/{{ project.modalImage }}" class="modal-img" alt="{{ project.title }} image" />
-                        {% endif %} -->
-                        <div class="modal-content">
-                          {{ project.content | markdownify }}
-          
-                          {% if project.manifesto %}
-                          <div class="modal-content-p"><a class="link-modal" href="{{ project.manifesto }}">Read</a>  <span style="padding-left:15px">The change Manifesto.</span></div>
+                    <div class="tile tile-custom sdg-tile">
+                        <div class="tile-div">
+                          <!-- Trend Status with Icon -->
+                          <div class="trend-status">
+                            <img src="{{ site.baseurl }}/assets/images/SDG/{{ project.status-sign | strip }}" alt="Trend Status Icon" class="trend-status-icon" />
+                         </div>
+
+                          <!-- SDG Info -->
+                          {% if project.externalLogo %}
+                            {% assign img = project.externalLogo %}
+                          {% else %}
+                            {% capture img %}/assets/images/SDG/{{ project.logo | strip }}{% endcapture %}
                           {% endif %}
-          
-                          {% if project.projects_count %}
-                          <div class="modal-content-p"> {% if project.projects_url %} <a class="link-modal" href="{{ project.projects_url }}">Explore</a>Open Source Projects.{% endif %}</div>
-                          {% endif %}
-          
-                          {% if project.discord %}
-                          <div class="modal-content-p"><a class="link-modal"  href="{{ project.discord }}">Join</a><span style="padding-left:24px">Discord Community.</span></div>
-                          {% endif %}
-          
-                          <!-- {% if project.sources %}
-                          <p><strong>Sources:</strong></p>
-                          <ul>
-                            {% for src in project.sources %}
-                              <li><a href="{{ src.url }}">{{ src.label }}</a></li>
-                            {% endfor %}
-                          </ul>
-                          {% endif %} -->
+                          <img class="mb-4 sdg-badge" src="{{ img | relative_url }}" alt="{{ project.title }} logo" />
+                          <h3 class="h6 text-brand font-weight-600 mb-3" style="color:#33673B">{{ project.title }}</h3>
+                          <p style="width:90%; font-size: 12px; font-weight:500">{{ project.description }}</p>
+                     
+                          <!-- Hover Modal -->
+                          <div class="hover-modal">
+                            <!-- {% if project.modalImage %}
+                            <img src="/assets/images/{{ project.modalImage }}" class="modal-img" alt="{{ project.title }} image" />
+                            {% endif %} -->
+                            <div class="modal-content">
+                              {{ project.content | markdownify }}
+                            
+                              {% if project.manifesto %}
+                              <div class="modal-content-p"><a class="link-modal" href="{{ project.manifesto }}">Read</a>  <span style="padding-left:15px">The change Manifesto.</span></div>
+                              {% endif %}
+                            
+                              {% if project.projects_count %}
+                              <div class="modal-content-p"> {% if project.projects_url %} <a class="link-modal" href="{{ project.projects_url }}">Explore</a>Open Source Projects.{% endif %}</div>
+                              {% endif %}
+                            
+                              {% if project.discord %}
+                              <div class="modal-content-p"><a class="link-modal"  href="{{ project.discord }}">Join</a><span style="padding-left:24px">Discord Community.</span></div>
+                              {% endif %}
+                            
+                              <!-- {% if project.sources %}
+                              <p><strong>Sources:</strong></p>
+                              <ul>
+                                {% for src in project.sources %}
+                                  <li><a href="{{ src.url }}">{{ src.label }}</a></li>
+                                {% endfor %}
+                              </ul>
+                              {% endif %} -->
+                            </div>
+                          </div>
+                      
                         </div>
-                      </div>
-          
                     </div>
-                  </div>
-              </div>
-              
+            </div>
             {% endif %}
           {% endfor %}
         </div>
-      
+        </div>
+
         <div class="text-center mt-6 pb-6">
           <a class="link-arrow text-white mt-4" href="/projects">Explore Ways You Can Help</a>
         </div>
-      </div>
+    </div>
       
 
-    <div class="wrapper my-6 py-6">
-    </div>
+    <!-- <div class="wrapper my-6 py-6">
+    </div> -->
 
     <div class="wrapper py-6 my-6">
         

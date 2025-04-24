@@ -110,3 +110,89 @@
     display: none;
   }
   
+  .trends-and-tiles {
+    display: flex;
+    align-items: flex-start; /* Align items at the top */
+    gap: 20px; /* Space between the trends indicator and tile list */
+    position: relative; /* Ensure proper positioning of child elements */
+    align-items: center;
+}
+  .trends-indicator {
+    margin-top: 300px;
+    position: sticky;
+    display: flex;
+    flex-direction: column;
+    top: 20%;
+    transform: translateY(-50%);
+    /* padding: 10px; */
+    width: 100px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* margin-left: 30px; */
+    z-index: 2;
+}
+
+.trends-title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+    text-align: center;
+    margin-left: 10px;
+    color: #ffffff;
+}
+
+.trends-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 5px;
+}
+
+.trend-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1 1 calc(20% - 10px); /* Adjust for 5 items in a row */
+    max-width: 120px;
+}
+
+.trend-icon {
+    width: 24px;
+    height: 24px;
+    margin-bottom: 10px;
+}
+
+.trend-label {
+    font-size: 1rem;
+    color: #ffffff;
+}
+
+@media (max-width: 767px) {
+    .trends-list {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .trend-item {
+        flex: 1 1 100%;
+        max-width: none;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .trend-icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    .trend-label {
+        font-size: 0.85rem;
+    }
+}
